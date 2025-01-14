@@ -1,36 +1,21 @@
 const myLibraly = [];
 
-function Book(name, author, pages, read){
-    this.name = name;
+function Book(title, author, pages, read){
+    this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
-};
-
-function addBookToLibraly(name, author, pages, read){
-    const book = new Book(name, author, pages, read);
-    myLibraly.push(book);
+    this. read = read;
 }
 
-let info = addBookToLibraly('tee', 'yeah', 78, true);
-
-function loop (){
-    return myLibraly[0].name;
-}
-console.log(loop());
-
-function addElement(targetElement, name){
-    name = document.createElement(targetElement);
-    EventTarget.appendChild(name);
+function addBookToLibraly(title, author, pages, read){
+    const newBook = new Book(title, author, pages, read);
+    myLibraly.push(newBook);
+    displayBook();
 }
 
-
-
-const books = document.querySelector('.books')
-const addBook = document.querySelector('.form');
-addBook.addEventListener('submit', (event)=>{
-    event.preventDefault();
-    const booksDiv = document.querySelector('div')
-    booksDiv.classList.add('books-div');
-    books.appendChild(booksDiv)
-})
+function displayBook(){
+    myLibraly.forEach((book) => {
+        console.log(book.title);
+    })
+}
+addBookToLibraly('yewo', 'week', 78, true);
