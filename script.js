@@ -19,7 +19,7 @@ const books = document.querySelector('.book-list')
 function displayBook(){
     myLibraly.forEach((element) => {
         const bookList = document.createElement('div');
-        bookList.setAttribute('class', 'bookDiv')
+        bookList.setAttribute('class', 'book-div')
         const title = document.createElement('span');
         title.textContent = element.title;
         bookList.appendChild(title)
