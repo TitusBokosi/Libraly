@@ -19,5 +19,18 @@ function loop (){
 }
 console.log(loop());
 
+function addElement(targetElement, name){
+    name = document.createElement(targetElement);
+    EventTarget.appendChild(name);
+}
 
 
+
+const books = document.querySelector('.books')
+const addBook = document.querySelector('.form');
+addBook.addEventListener('submit', (event)=>{
+    event.preventDefault();
+    const booksDiv = document.querySelector('div')
+    booksDiv.classList.add('books-div');
+    books.appendChild(booksDiv)
+})

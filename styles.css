@@ -11,28 +11,44 @@ body{
     width: 100%;
     align-items: center;
     justify-content: center;
+    background-color: white;
 }
-.div{
-    height: 100%;
-    background-color: black;
-    font-size: 1.5rem;
-    color: white;
-    justify-items: center;
+.body{
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
+
+}
+.side-bar{
+    padding: 20px;
+}
+.form{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap:10px ;
 }
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    justify-content: flex-start;
+}
+.header{
+    height: fit-content;
+}
+
 button{
     background-color: rgb(12, 70, 12);
-    border-radius: 10px;
+    border-radius: 8px;
     border: none;
-    height: 40px;
-    width: 100px;
+    height: 20px;
+    width: 90px;
     color: white;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
-h1{
-    text-align: center;
+input{
+    border: solid rgb(12, 70, 12) 2px;
+    border-radius: 8px;
+    padding: 10px;
 }
