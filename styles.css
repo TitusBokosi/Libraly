@@ -11,16 +11,21 @@ body{
     width: 100%;
 }
 .container{
-    display: grid;
-    grid-template-columns: 25% 75%;
     height: 100%;
     width: 100%;
     gap: 10px;
 }
 .side-bar{
-    box-shadow: 2px 0px 10px 0px black;
     padding: 40px;
-    height: 100%;
+    height: fit-content;
+    width: 400px;
+    justify-self: center;
+}
+
+.header > .side-bar{
+    box-shadow: none;
+    width: fit-content;
+    height: fit-content;
 }
 .form{
     display: grid;
@@ -29,12 +34,33 @@ body{
     width: 100%;
 }
 
+.header > .side-bar >.form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
 .form > div{
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 20px;
     width: 100%;
 }
+
+.header > .side-bar > .form > div{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    align-items: center;
+    max-width: fit-content;
+}
+
+.header > .side-bar > .form > .submit-button{
+    background-color: white;
+    color: rgb(36, 92, 36);
+    font-weight: bold;
+}
+
 .form > button{
     background-color: rgb(36, 92, 36);
     color: white;
@@ -56,6 +82,10 @@ body{
     color: white;
     background-color: rgb(36, 92, 36);
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
    
 
 }
@@ -108,4 +138,13 @@ input{
     height: 20px;
     background-color: rgb(36, 92, 36);
     color: white;
+}
+.add-button{
+    background-color: white;
+    border-radius: 10px;
+    color: rgb(36, 92, 36);
+    font-weight: bold;
+    height: 40px;
+    border: none;
+    font-size: 1rem;
 }
