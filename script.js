@@ -17,28 +17,39 @@ function addBookToLibraly(title, author, pages, read){
 const books = document.querySelector('.book-list')
 
 function displayBook(){
-    myLibraly.forEach((element) => {
+    const element = myLibraly[myLibraly.length -1];
         const bookList = document.createElement('div');
         bookList.setAttribute('class', 'book-div')
         const title = document.createElement('span');
-        title.textContent = element.title;
+        title.textContent = `Title: ${element.title}`;
         bookList.appendChild(title)
 
         const author = document.createElement('span');
-        author.textContent = element.author;
+        author.textContent = `Author:  ${element.author}`
         bookList.appendChild(author)
 
         const pages = document.createElement('span');
-        pages.textContent = element.pages;
+        pages.textContent = `Pages:  ${element.pages}`
         bookList.appendChild(pages)
 
         const read = document.createElement('span');
-        read.textContent = element.read;
+        read.textContent = `Read status:  ${element.read}`
         bookList.appendChild(read);
 
+        const deleteBook = document.createElement('button');
+        deleteBook.textContent = 'delete book'
+        bookList.appendChild(deleteBook);
+        deleteBook.setAttribute('type', 'button');
+        deleteBook.classList.add('delete-book')
+
         books.appendChild(bookList);
-    });
-   
+
+        deleteBook.addEventListener('click', () => {
+            deleteBook.parentElement.remove();
+            const bookIndex = myLibraly.indexOf(element);
+            myLibraly.splice(bookIndex, 1);
+           
+        })
 }
 
 const form = document.querySelector('.form');
