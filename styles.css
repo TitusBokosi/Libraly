@@ -69,11 +69,12 @@ h1{
 .book-list{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     width: 100%;
+    gap: 40px;
+    padding: 20px;
 }
 .book-div{
-    margin-block-start: 20px;
     display: grid;
     grid-template-rows: repeat(4 1fr);
     gap: 10px;
@@ -96,8 +97,8 @@ input{
     width: 100px;
 }
 .read-div{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 .togle-button{
