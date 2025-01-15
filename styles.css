@@ -63,7 +63,7 @@ h1{
 .book-list{
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 .book-div{
@@ -78,4 +78,25 @@ input{
     border: solid rgb(36, 92, 36) 2px;
     border-radius: 10px;
     padding: 10px;
+}
+.delete-book{
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+    width: 100px;
+}
+.read-div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.togle-button{
+    border: solid rgb(36, 92, 36) 2px;
+    border-radius: 5px;
+    width: 120px;
+    height: 20px;
+    background-color: rgb(36, 92, 36);
+    color: white;
 }
