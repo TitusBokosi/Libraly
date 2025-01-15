@@ -70,15 +70,115 @@ function displayBook(){
 }
 
 const form = document.querySelector('.form');
+const formContainer = document.querySelector('.side-bar')
 form.addEventListener('submit', event =>{
     event.preventDefault();
+    formEvent();
+})
+
+const header = document.querySelector('.header');
+
+ function addButton(){
+    const addButton = document.createElement('button');
+    addButton.setAttribute('type', 'button');
+    addButton.classList.add('add-button');
+    addButton.textContent = 'Add a new book';
+    header.appendChild(addButton);
+
+    addButton.addEventListener('click', () =>{
+     displayForm();
+     addButton.remove();
+    })
+ }
+
+ const container = document.querySelector('.container');
+
+
+ function displayForm(){
+    const sideBar = document.createElement('div')
+    sideBar.classList.add('side-bar');
+    header.appendChild(sideBar)
+    const form = document.createElement('form');
+    form.classList.add('form');
+    sideBar.appendChild(form);
+
+    const div = document.createElement('div');
+    const label = document.createElement('label');
+    label.setAttribute('for', 'title');
+    label.textContent = 'Title'
+    const title = document.createElement('input')
+    title.setAttribute('id', 'title');
+    title.setAttribute('type', 'text');
+    title.setAttribute('name', 'title');
+    div.appendChild(label);
+    div.appendChild(title);
+    form.appendChild(div);
+
+    const div2 = document.createElement('div');
+    const label2 = document.createElement('label');
+    label2.setAttribute('for', 'author');
+    label2.textContent = 'Author'
+    const author = document.createElement('input')
+    author.setAttribute('id', 'author');
+    author.setAttribute('type', 'text');
+    author.setAttribute('name', 'author');
+    div2.appendChild(label2);
+    div2.appendChild(author);
+    form.appendChild(div2);
+
+    const div3 = document.createElement('div');
+    const label3 = document.createElement('label');
+    label3.setAttribute('for', 'pages');
+    label3.textContent = 'Pages'
+    const pages = document.createElement('input')
+    pages.setAttribute('id', 'pages');
+    pages.setAttribute('type', 'number');
+    pages.setAttribute('name', 'pages');
+    div3.appendChild(label3);
+    div3.appendChild(pages);
+    form.appendChild(div3);
+
+    const div4 = document.createElement('div');
+    const label4 = document.createElement('label');
+    label4.setAttribute('for', 'read');
+    label4.textContent = 'Read'
+    const read = document.createElement('input')
+    read.setAttribute('id', 'read');
+    read.setAttribute('type', 'checkbox');
+    read.setAttribute('name', 'read');
+    div4.appendChild(label4);
+    div4.appendChild(read);
+    form.appendChild(div4);
+
+
+    const submit = document.createElement('button')
+    submit.textContent = 'Submit Book'
+    submit.classList.add('submit-button');
+    submit.setAttribute('type', 'submit');
+    submit.setAttribute('name', 'submit');
+    form.appendChild(submit);
+
+    submit.addEventListener('click', event => {
+        event.preventDefault();
+        formEvent();
+        sideBar.remove();
+    })
+ }
+
+
+ function formEvent(){
     const title = document.querySelector('#title').value;
     const author =  document.querySelector('#author').value;
     const pages = document.querySelector('#pages').value;
     const readCheckbox = document.getElementById('read');
     const isRead = readCheckbox.checked;
     addBookToLibraly(title, author, pages, isRead);
-})
+    addButton();
+    formContainer.remove();
+ }
+ 
+
+
 
 
 
