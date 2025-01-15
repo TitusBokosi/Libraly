@@ -5,6 +5,9 @@ function Book(title, author, pages, read){
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.toggleButton = function(){
+        this.read = !this.read;
+    }
 }
 
 
@@ -32,9 +35,16 @@ function displayBook(){
         pages.textContent = `Pages:  ${element.pages}`
         bookList.appendChild(pages)
 
+        const readDiv = document.createElement('div')
         const read = document.createElement('span');
-        read.textContent = `Read status:  ${element.read}`
-        bookList.appendChild(read);
+        read.textContent = `Read status:  ${element.read ? 'Read' : 'Not Read'}`
+        readDiv.appendChild(read);
+        const readButton = document.createElement('button');
+        readButton.textContent = `${element.read ? 'Mark Not read' : 'Mark Read'}`
+        readButton.classList.add('togle-button');
+        readDiv.appendChild(readButton);
+        readDiv.classList.add('read-div');
+        bookList.appendChild(readDiv);
 
         const deleteBook = document.createElement('button');
         deleteBook.textContent = 'delete book'
@@ -50,6 +60,13 @@ function displayBook(){
             myLibraly.splice(bookIndex, 1);
            
         })
+
+        readButton.addEventListener('click', () =>{
+            const bookIndex = myLibraly.indexOf(element);
+            myLibraly[bookIndex].toggleButton();
+            read.textContent = `Read status:  ${myLibraly[bookIndex].read ? 'Read' : 'Not Read'}`
+            readButton.textContent = `${myLibraly[bookIndex].read ? 'Mark Not read' : 'Mark Read'}`       
+        })
 }
 
 const form = document.querySelector('.form');
@@ -58,8 +75,9 @@ form.addEventListener('submit', event =>{
     const title = document.querySelector('#title').value;
     const author =  document.querySelector('#author').value;
     const pages = document.querySelector('#pages').value;
-    const read =  document.querySelector('#read').value;
-    addBookToLibraly(title, author, pages, read);
+    const readCheckbox = document.getElementById('read');
+    const isRead = readCheckbox.checked;
+    addBookToLibraly(title, author, pages, isRead);
 })
 
 
